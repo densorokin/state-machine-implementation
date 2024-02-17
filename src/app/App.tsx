@@ -1,8 +1,8 @@
 import { Link, Route, Routes } from "react-router-dom";
-import { EmployeeWizardPageAsync } from "./pages/EmployeeWizardPage/EmployeeWizardPage.async";
-import { MainPageAsync } from "./pages/MainPage/MainPage.async";
+import { EmployeeWizardPage } from "pages/EmployeeWizardPage";
+import { MainPage } from "pages/MainPage";
 import { Suspense } from "react";
-import "./index.scss";
+import "./styles/index.scss";
 
 export const App = () => {
   return (
@@ -11,8 +11,8 @@ export const App = () => {
       <Link to="/state-machine">State machine</Link>
       <Suspense fallback="Loading...">
         <Routes>
-          <Route path="/state-machine" element={<EmployeeWizardPageAsync />} />
-          <Route path="/" element={<MainPageAsync />} />
+          <Route path="/state-machine" element={<EmployeeWizardPage />} />
+          <Route path="/" element={<MainPage />} />
         </Routes>
       </Suspense>
     </div>
