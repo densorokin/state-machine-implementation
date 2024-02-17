@@ -1,5 +1,4 @@
-// import { classNames } from 'shared/lib/classNames';
-import "./Counter.scss";
+import cls from "./Counter.module.scss";
 
 import { useState } from "react";
 
@@ -11,8 +10,8 @@ export const Counter = ({ className }: CounterProps) => {
   const [counter, setCounter] = useState(0);
 
   return (
-    <div>
-      <div className="counter">{counter}</div>
+    <div className={cls.counter}>
+      <div>{counter}</div>
       <button onClick={() => setCounter(counter + 1)} className="btn">
         btn
       </button>
