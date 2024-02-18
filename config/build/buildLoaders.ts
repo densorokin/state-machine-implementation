@@ -21,7 +21,6 @@ export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
     },
   };
 
-  ////asdasd
   const cssLoaders = {
     test: /\.s[ac]ss$/i,
     use: [
