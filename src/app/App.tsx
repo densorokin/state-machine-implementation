@@ -1,9 +1,6 @@
-import { Link, Route, Routes } from "react-router-dom";
-import { EmployeeWizardPage } from "pages/EmployeeWizardPage";
-import { MainPage } from "pages/MainPage";
-import { Suspense } from "react";
-import "./styles/index.scss";
+import { Link } from "react-router-dom";
 import { AppRouter } from "./providers/router";
+import "./styles/index.scss";
 
 export const App = () => {
   return (
