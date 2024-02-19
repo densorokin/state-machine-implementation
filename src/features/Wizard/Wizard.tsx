@@ -2,7 +2,6 @@ import { Card } from "widgets/Card/Card";
 import { useStateMachine } from "state-machine-lib";
 import cls from "./Wizard.module.scss";
 import { useEffect } from "react";
-import { Loader } from "shared/ui/Loader/Loader";
 
 const example = {
   initialState: "initial",
@@ -276,7 +275,7 @@ export const Wizard = () => {
         </div>
       </Card>
 
-      {machineState === "loading" && <Loader />}
+      {machineState === "loading" && <div>...loader</div>}
 
       <Card
         active={machineState === "success"}
