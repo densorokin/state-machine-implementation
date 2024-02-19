@@ -1,13 +1,14 @@
 // import cls from "./EmployeeWizard.module.scss";
-import { Button } from "shared/ui/Button/Button";
+import { Wizard } from "features/Wizard/Wizard";
+import cls from "./EmployeeWizard.module.scss";
 interface EmployeeWizardPageProps {
   className?: string;
 }
 
 const EmployeeWizardPage = ({ className }: EmployeeWizardPageProps) => {
   return (
-    <div>
-      state machine <Button>Test</Button>
+    <div className={cls.wizard}>
+      <Wizard />
     </div>
   );
 };

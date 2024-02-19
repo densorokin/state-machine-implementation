@@ -19,6 +19,6 @@ export const routeConfig: RouteProps[] = [
   },
   {
     path: RoutePath["state-machine"],
-    element: <EmployeeWizardPage />,
+    element: <EmployeeWizardPage />, //lazy pass arguments
   },
 ];
