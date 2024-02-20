@@ -3,6 +3,7 @@ import { Button } from "shared/ui/Button/Button";
 import cls from "./Card.module.scss";
 
 export const Card = ({
+  dataTestId,
   active,
   children,
   next,
@@ -12,29 +13,31 @@ export const Card = ({
 }: any) => {
   return (
     <CSSTransition in={active} timeout={300} classNames="swipe" unmountOnExit>
-      <div>
+      <div data-testid={dataTestId}>
         <div className={cls.card}>
-          <header className={cls["header"]}>
-            <h2 className={cls["title"]}>{title}</h2>
-            <p className={cls["subtitle"]}>{subtitle}</p>
+          <header className={cls.header}>
+            <h2 className={cls.title}>{title}</h2>
+            <p className={cls.subtitle}>{subtitle}</p>
           </header>
-          <div className={cls["main"]}>{children}</div>
-          <div className={cls["actions"]}>
+          <div className={cls.main}>{children}</div>
+          <div className={cls.actions}>
             {prev && (
               <Button
-                className={(cls["action"], cls["action_prev"])}
+                dataTestId={`${dataTestId}-prev-card-btn`}
+                className={cls.action_prev}
                 onClick={prev.action}
               >
                 {prev.content}
               </Button>
             )}
             {next && (
-              <button
-                className={(cls["action"], cls["action_next"])}
+              <Button
+                className={cls.action_next}
                 onClick={next.action}
+                dataTestId={`${dataTestId}-next-card-btn`}
               >
                 {next.content}
-              </button>
+              </Button>
             )}
           </div>
         </div>

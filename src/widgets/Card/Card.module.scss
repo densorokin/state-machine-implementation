@@ -1,7 +1,5 @@
 .card {
     position: absolute;
-    // display: flex;
-    // flex-direction: column;
     width: 100%;
     padding: 3em 2em 2em;
     border-radius: 1.5em;
@@ -24,24 +22,12 @@
 
 .main {
     flex-grow: 1;
+    margin-bottom: 20px;
 }
 
-.action {
-    padding: 1em 1.5em;
-    border-radius: 1.5em;
-    border: 0;
-    color: #fff;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.action_next {
-    background-color: #4a90e2;
-}
-
-.action_prev {
-    background-color: #bbb;
+.actions {
+    display: flex;
+    gap: 20px;
 }
 
 .action:not(:last-child) {
@@ -73,4 +59,12 @@
 .swipe-exit-active {
     transform: translateY(100vh);
     transition: transform 0.3s;
+}
+
+.action_next {
+    background-color: #4a90e2;
+}
+
+.action_prev {
+    background-color: #bbb;
 }

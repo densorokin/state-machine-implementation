@@ -3,12 +3,13 @@ import { useStateMachine } from "state-machine-lib";
 import cls from "./Wizard.module.scss";
 import { useEffect } from "react";
 
+const initialState = "initial";
+
 const example = {
-  initialState: "initial",
   initial: {
     actions: {
-      onEnter() {},
-      onExit() {},
+      onInAction() {},
+      onOutAction() {},
     },
     transitions: {
       start: {
@@ -20,14 +21,6 @@ const example = {
     },
   },
   personal: {
-    actions: {
-      onEnter() {
-        // console.log("off: onEnter");
-      },
-      onExit() {
-        // console.log("off: onExit");
-      },
-    },
     transitions: {
       next: {
         target: "occupation",
@@ -38,14 +31,6 @@ const example = {
     },
   },
   occupation: {
-    actions: {
-      onEnter() {
-        // console.log("on: onEnter");
-      },
-      onExit() {
-        // console.log("on: onExit");
-      },
-    },
     transitions: {
       back: {
         target: "personal",
@@ -72,14 +57,6 @@ const example = {
     },
   },
   education: {
-    actions: {
-      onEnter() {
-        // console.log("on: onEnter");
-      },
-      onExit() {
-        // console.log("on: onExit");
-      },
-    },
     transitions: {
       back: {
         target: "occupation",
@@ -96,14 +73,6 @@ const example = {
     },
   },
   work: {
-    actions: {
-      onEnter() {
-        // console.log("on: onEnter");
-      },
-      onExit() {
-        // console.log("on: onExit");
-      },
-    },
     transitions: {
       back: {
         target: "occupation",
@@ -120,14 +89,6 @@ const example = {
     },
   },
   loading: {
-    actions: {
-      onEnter() {
-        console.log("on: IN loading");
-      },
-      onExit() {
-        console.log("on: OUT loading");
-      },
-    },
     transitions: {
       success: {
         target: "success",
@@ -138,14 +99,6 @@ const example = {
     },
   },
   success: {
-    actions: {
-      onEnter() {
-        // console.log("on: onEnter");
-      },
-      onExit() {
-        // console.log("on: onExit");
-      },
-    },
     transitions: {
       reset: {
         target: "initial",
@@ -158,8 +111,8 @@ const example = {
 };
 
 export const Wizard = () => {
-  const { transition, machineState } = useStateMachine(example);
-
+  const { transition, machineState } = useStateMachine(initialState, example);
+  console.log("Wizard.tsx >>>", machineState);
   useEffect(() => {
     if (machineState === "loading") {
       setTimeout(() => {
@@ -169,8 +122,9 @@ export const Wizard = () => {
   }, [machineState]);
 
   return (
-    <div className={cls.wizard}>
+    <div className={cls.wizard} data-testid="wizard-container">
       <Card
+        dataTestId="initial"
         active={machineState === "initial"}
         next={{ action: () => transition("start"), content: "Start" }}
         subtitle="Thank you for taking part in our survey"
@@ -178,6 +132,7 @@ export const Wizard = () => {
       />
 
       <Card
+        dataTestId="personal"
         active={machineState === "personal"}
         next={{ action: () => transition("next"), content: "Next" }}
         subtitle="Tell us about you!"
@@ -192,6 +147,7 @@ export const Wizard = () => {
       </Card>
 
       <Card
+        dataTestId="occupation"
         active={machineState === "occupation"}
         prev={{ action: () => transition("back"), content: "Back" }}
         subtitle="Do you work or study?"
@@ -200,6 +156,7 @@ export const Wizard = () => {
         <div className={cls["input-group"]}>
           <label htmlFor="occupationStudent" className={cls["label-radio"]}>
             <input
+              data-testid="input-occupation-student"
               type="radio"
               name="occupation"
               id="occupationStudent"
@@ -213,6 +170,7 @@ export const Wizard = () => {
         <div className="input-group">
           <label htmlFor="occupationWorker" className={cls["label-radio"]}>
             <input
+              data-testid="input-occupation-worker"
               type="radio"
               name="occupation"
               id="occupationWorker"
@@ -226,6 +184,7 @@ export const Wizard = () => {
       </Card>
 
       <Card
+        dataTestId="work"
         active={machineState === "work"}
         next={{
           action: () => {
@@ -251,6 +210,7 @@ export const Wizard = () => {
       </Card>
 
       <Card
+        dataTestId="education"
         active={machineState === "education"}
         next={{
           action: () => {
@@ -275,9 +235,10 @@ export const Wizard = () => {
         </div>
       </Card>
 
-      {machineState === "loading" && <div>...loader</div>}
+      {machineState === "loading" && <div data-testid="loader">...loader</div>}
 
       <Card
+        dataTestId="survey"
         active={machineState === "success"}
         prev={{
           action: () => transition("reset"),
