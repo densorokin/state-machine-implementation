@@ -11,9 +11,9 @@ import { type BuildOptions } from "./types/config";
 export const buildPlugins = (
   options: BuildOptions
 ): WebpackPluginInstance[] => {
-  const { paths } = options;
+  const { paths, isDev } = options;
 
-  return [
+  const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html,
     }),
@@ -23,8 +23,15 @@ export const buildPlugins = (
       chunkFilename: "css/[name].[contenthash:8].css",
     }),
     new HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-    }),
   ];
+
+  if (isDev) {
+    plugins.push(
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+      })
+    );
+  }
+
+  return plugins;
 };
