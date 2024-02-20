@@ -1,12 +1,18 @@
-// import { classNames } from 'shared/lib/classNames';
-// import cls from './MainPage.module.scss';
+import { classNames } from "shared/lib/classNames/classNames";
+import cls from "./MainPage.module.scss";
+import { AppLink } from "shared/ui/AppLink/AppLink";
 
 interface MainPageProps {
   className?: string;
 }
 
 const MainPage = ({ className }: MainPageProps) => {
-  return <div>MainPage</div>;
+  return (
+    <div className={classNames(cls.container, {}, [className])}>
+      <span>Welcome to a state machine</span>
+      <AppLink to="/state-machine">Demo</AppLink>
+    </div>
+  );
 };
 
 export default MainPage;
