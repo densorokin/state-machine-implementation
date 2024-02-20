@@ -10,7 +10,7 @@
     "build:dev": "webpack --env mode=development",
     "unit": "jest --config ./config/jest/jest.config.ts",
     "predeploy": "npm run build:prod",
-    "deploy": "gh-pages -d build:prod"
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "Denis Sorokin",
