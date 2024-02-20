@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { Wizard } from "./Wizard";
+import { Questionnaire } from "./Questionnaire";
 
 const expectToBeInTheDocument = (testId: string): HTMLElement => {
   const elem = screen.getByTestId(testId);
@@ -10,7 +10,7 @@ const expectToBeInTheDocument = (testId: string): HTMLElement => {
 
 describe("Wizard", () => {
   test("Wizard flow", () => {
-    render(<Wizard />);
+    render(<Questionnaire />);
     expect(screen.getByTestId("wizard-container")).toBeInTheDocument();
 
     expectToBeInTheDocument("initial");

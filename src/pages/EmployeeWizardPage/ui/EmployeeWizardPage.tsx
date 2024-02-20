@@ -1,5 +1,5 @@
 // import cls from "./EmployeeWizard.module.scss";
-import { Wizard } from "features/Wizard/Wizard";
+import { Questionnaire } from "features/Wizard/Questionnaire";
 interface EmployeeWizardPageProps {
   className?: string;
 }
@@ -7,7 +7,7 @@ interface EmployeeWizardPageProps {
 const EmployeeWizardPage = ({ className }: EmployeeWizardPageProps) => {
   return (
     <div>
-      <Wizard />
+      <Questionnaire />
     </div>
   );
 };
