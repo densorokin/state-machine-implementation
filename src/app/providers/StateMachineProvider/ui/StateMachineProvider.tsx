@@ -1,7 +1,7 @@
 import { useEffect, useState, ReactNode } from "react";
 import { MachineTemplateContext } from "../lib/machineTemplateContext";
 
-const example = {
+export const example = {
   initial: {
     actions: {
       onInAction() {},
@@ -106,15 +106,21 @@ const example = {
   },
 };
 
-const StateMachineProvider = ({ children }: { children: ReactNode }) => {
-  const [machineTemplate, setMachineTemplate] = useState<any>(null);
+export const StateMachineProvider = ({
+  children,
+  initialState,
+}: {
+  children: ReactNode;
+  initialState?: any;
+}) => {
+  const [machineTemplate, setMachineTemplate] = useState<any>(initialState);
 
   const getStateMachine = async () => {
     const response = await fetch(
       "https://jsonplaceholder.typicode.com/todos/1"
     );
     const data = await response.json();
-    console.log("StateMachineProvider.tsx >>>", data);
+
     setMachineTemplate(example);
   };
 
@@ -128,5 +134,3 @@ const StateMachineProvider = ({ children }: { children: ReactNode }) => {
     </MachineTemplateContext.Provider>
   );
 };
-
-export default StateMachineProvider;

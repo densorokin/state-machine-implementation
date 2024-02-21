@@ -9,7 +9,9 @@ interface MainPageProps {
 const MainPage = ({ className }: MainPageProps) => {
   return (
     <div className={classNames(cls.container, {}, [className])}>
-      <span>Welcome to a state machine</span>
+      <span className={classNames(cls.content)}>
+        Welcome to a state machine
+      </span>
       <AppLink to="/state-machine">Demo</AppLink>
     </div>
   );
