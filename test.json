@@ -1,0 +1,63 @@
+{
+    "initial": {
+        "transitions": {
+            "start": {
+                "target": "personal"
+            }
+        }
+    },
+    "personal": {
+        "transitions": {
+            "next": {
+                "target": "occupation"
+            }
+        }
+    },
+    "occupation": {
+        "transitions": {
+            "back": {
+                "target": "personal"
+            },
+            "education": {
+                "target": "education"
+            },
+            "work": {
+                "target": "work"
+            }
+        }
+    },
+    "education": {
+        "transitions": {
+            "back": {
+                "target": "occupation"
+            },
+            "send": {
+                "target": "loading"
+            }
+        }
+    },
+    "work": {
+        "transitions": {
+            "back": {
+                "target": "occupation"
+            },
+            "send": {
+                "target": "loading"
+            }
+        }
+    },
+    "loading": {
+        "transitions": {
+            "success": {
+                "target": "success"
+            }
+        }
+    },
+    "success": {
+        "transitions": {
+            "reset": {
+                "target": "initial"
+            }
+        }
+    }
+}

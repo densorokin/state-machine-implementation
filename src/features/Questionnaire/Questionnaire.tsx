@@ -1,25 +1,21 @@
 import { Card } from "widgets/Card/Card";
 import { useStateMachine } from "state-machine-lib";
 import cls from "./Questionnaire.module.scss";
-import { useEffect } from "react";
 import { useMachineTemplate } from "app/providers/StateMachineProvider/lib/useMachineTemplate";
 
 const initialState = "initial";
 
 export const Questionnaire = () => {
   const { machineTemplate } = useMachineTemplate();
+
   const { transition, machineState } = useStateMachine(
     initialState,
     machineTemplate
   );
 
-  useEffect(() => {
-    if (machineState === "loading") {
-      setTimeout(() => {
-        transition("success");
-      }, 1500);
-    }
-  }, [machineState]);
+  if (!machineTemplate) {
+    return <div>Loading</div>;
+  }
 
   return (
     <div className={cls.wizard} data-testid="wizard-container">
@@ -37,14 +33,7 @@ export const Questionnaire = () => {
         next={{ action: () => transition("next"), content: "Next" }}
         subtitle="Tell us about you!"
         title="Personal"
-      >
-        <div className={cls["input-group"]}>
-          <label htmlFor="name" className="label">
-            Name
-          </label>
-          <input type="text" placeholder="Floppa" id="name" className="input" />
-        </div>
-      </Card>
+      />
 
       <Card
         dataTestId="occupation"
@@ -90,24 +79,12 @@ export const Questionnaire = () => {
           action: () => {
             transition("send");
           },
-          content: "Send survey",
+          content: "Continue",
         }}
         prev={{ action: () => transition("back"), content: "Back" }}
         subtitle="Wow! What's your job?"
         title="Work"
-      >
-        <div className={cls["input-group"]}>
-          <label htmlFor="job" className="label">
-            Job
-          </label>
-          <input
-            type="text"
-            placeholder="Caracal"
-            id="job"
-            className={cls.input}
-          />
-        </div>
-      </Card>
+      />
 
       <Card
         dataTestId="education"
@@ -116,31 +93,17 @@ export const Questionnaire = () => {
           action: () => {
             transition("send");
           },
-          content: "Send survey",
+          content: "Continue",
         }}
         prev={{ action: () => transition("back"), content: "Back" }}
         subtitle="That's great! What's your future profession?"
         title="Education"
-      >
-        <div className={cls["input-group"]}>
-          <label htmlFor="profession" className={cls.label}>
-            Profession
-          </label>
-          <input
-            type="text"
-            placeholder="Meme"
-            id="profession"
-            className={cls.input}
-          />
-        </div>
-      </Card>
-
-      {machineState === "loading" && <div data-testid="loader">...loader</div>}
+      />
 
       <Card
-        dataTestId="survey"
+        dataTestId="success"
         active={machineState === "success"}
-        prev={{
+        next={{
           action: () => transition("reset"),
           content: "Take another survey",
         }}

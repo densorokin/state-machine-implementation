@@ -53,6 +53,7 @@
     "css-loader": "^6.10.0",
     "gh-pages": "^6.1.1",
     "html-webpack-plugin": "^5.6.0",
+    "husky": "^8.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
@@ -69,15 +70,14 @@
     "webpack": "^5.90.2",
     "webpack-bundle-analyzer": "^4.10.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.2",
-    "husky": "^8.0.0"
+    "webpack-dev-server": "^5.0.2"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",
     "react-transition-group": "^4.4.5",
-    "state-machine-lib": "^1.0.12-1"
+    "state-machine-lib": "^1.0.15"
   },
   "loki": {
     "configurations": {

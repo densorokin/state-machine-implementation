@@ -1,6 +1,23 @@
 import { CSSTransition } from "react-transition-group";
 import { Button } from "shared/ui/Button/Button";
 import cls from "./Card.module.scss";
+import { ReactNode } from "react";
+
+type CardProps = {
+  dataTestId: string;
+  active: boolean;
+  children?: ReactNode;
+  next?: {
+    action: () => void;
+    content: string;
+  };
+  prev?: {
+    action: () => void;
+    content: string;
+  };
+  subtitle: string;
+  title: string;
+};
 
 export const Card = ({
   dataTestId,
@@ -10,7 +27,7 @@ export const Card = ({
   prev,
   subtitle,
   title,
-}: any) => {
+}: CardProps) => {
   return (
     <CSSTransition in={active} timeout={300} classNames="swipe" unmountOnExit>
       <div data-testid={dataTestId}>

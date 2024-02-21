@@ -1,23 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { StateMachineProvider } from "app/providers/StateMachineProvider";
-import { example } from "app/providers/StateMachineProvider/ui/StateMachineProvider";
-import { Questionnaire } from "./Questionnaire";
-
-// jest.mock("state-machine-lib", () => {
-//   const originalLib = jest.requireActual("state-machine-lib");
-//   const transitionToSuccess = () => originalLib.transition("success");
-
-//   return {
-//     ...originalLib,
-//     transition: (stepName: string) => {
-//       console.log("Questionnaire.test.tsx >>>");
-
-//       if (stepName === "success") return;
-
-//       originalLib.transition(stepName);
-//     },
-//   };
-// });
+import { Questionnaire } from "../Questionnaire";
+import { stateMachineConfigurationMock } from "./mocks";
 
 const expectToBeInTheDocument = (testId: string): HTMLElement => {
   const elem = screen.getByTestId(testId);
@@ -29,7 +13,7 @@ const expectToBeInTheDocument = (testId: string): HTMLElement => {
 describe("Wizard", () => {
   test("Wizard flow", () => {
     render(
-      <StateMachineProvider initialState={{ ...example }}>
+      <StateMachineProvider initialState={{ ...stateMachineConfigurationMock }}>
         <Questionnaire />
       </StateMachineProvider>
     );
@@ -67,12 +51,9 @@ describe("Wizard", () => {
     const workBackBtn = screen.getByTestId("work-prev-card-btn");
     fireEvent.click(workBackBtn);
 
-    fireEvent.click(studentRadioBtn);
-    const education = screen.getByTestId("education-next-card-btn");
-    expect(education.textContent).toBe("Send survey");
-    fireEvent.click(education);
-
-    // expectToBeInTheDocument("loader");
-    // expectToBeInTheDocument("survey");
+    fireEvent.click(workerRadioBtn);
+    const workNextBtn = screen.getByTestId("work-next-card-btn");
+    expect(workNextBtn.textContent).toBe("Continue");
+    fireEvent.click(workNextBtn);
   });
 });

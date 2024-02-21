@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { MachineTemplateContext } from "./machineTemplateContext";
-import { StateMachine } from "state-machine-lib";
+import { StateMachineConfiguration } from "state-machine-lib";
 
 interface UseStateMachineResult {
-  machineTemplate: StateMachine;
+  machineTemplate: StateMachineConfiguration;
 }
 
 export function useMachineTemplate(): UseStateMachineResult {

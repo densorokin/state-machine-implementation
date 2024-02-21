@@ -1,9 +1,9 @@
 import { createContext } from "react";
-import { StateMachine } from "state-machine-lib";
+import { StateMachineConfiguration } from "state-machine-lib";
 
 export interface MachineTemplateContextProps {
-  machineTemplate?: StateMachine;
+  machineTemplate?: StateMachineConfiguration;
 }
 
 export const MachineTemplateContext =
-  createContext<MachineTemplateContextProps>({});
+  createContext<MachineTemplateContextProps>(undefined);
