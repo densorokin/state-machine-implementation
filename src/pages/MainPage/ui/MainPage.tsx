@@ -6,7 +6,12 @@ interface MainPageProps {
 }
 
 const MainPage = ({ className }: MainPageProps) => {
-  return <div>MainPage</div>;
+  return (
+    <div className={classNames(cls.container, {}, [className])}>
+      <span className={cls.content}>Welcome to a state machine</span>
+      <AppLink to="/state-machine">Demo</AppLink>
+    </div>
+  );
 };
 
 export default MainPage;

@@ -8,6 +8,7 @@ const initialState = "initial";
 
 export const Questionnaire = () => {
   const { machineTemplate } = useMachineTemplate();
+  console.log("Questionnaire.tsx >>>", { machineTemplate });
   const { transition, machineState } = useStateMachine(
     initialState,
     machineTemplate
