@@ -61,10 +61,10 @@
     transition: transform 0.3s;
 }
 
-.action_next {
-    background-color: #4a90e2;
+.btn_next {
+    background-color: var(--primary-button-next-background);
 }
 
-.action_prev {
-    background-color: #bbb;
+.btn_prev {
+    background-color: var(--primary-button-prev-background);
 }

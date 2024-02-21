@@ -24,7 +24,7 @@ export const Card = ({
             {prev && (
               <Button
                 dataTestId={`${dataTestId}-prev-card-btn`}
-                className={cls.action_prev}
+                className={cls.btn_prev}
                 onClick={prev.action}
               >
                 {prev.content}
@@ -32,7 +32,7 @@ export const Card = ({
             )}
             {next && (
               <Button
-                className={cls.action_next}
+                className={cls.btn_next}
                 onClick={next.action}
                 dataTestId={`${dataTestId}-next-card-btn`}
               >
