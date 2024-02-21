@@ -18,7 +18,8 @@
     "build:storybook": "storybook build -c ./config/storybook",
     "visual:report:json": "node scripts/generate-visual-json-report.js",
     "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
-    "test:ui:report": "npm run visual:report:json && npm run visual:report:html"
+    "test:ui:report": "npm run visual:report:json && npm run visual:report:html",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "Denis Sorokin",
@@ -68,7 +69,8 @@
     "webpack": "^5.90.2",
     "webpack-bundle-analyzer": "^4.10.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.2"
+    "webpack-dev-server": "^5.0.2",
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "react": "^18.2.0",
