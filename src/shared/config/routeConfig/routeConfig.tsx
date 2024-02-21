@@ -1,6 +1,6 @@
 import { RouteProps } from "react-router-dom";
 import { MainPage } from "pages/MainPage";
-import { EmployeeWizardPage } from "pages/EmployeeWizardPage";
+import { StateMachinePage } from "pages/StateMachinePage";
 import { StateMachineProvider } from "app/providers/StateMachineProvider/ui/StateMachineProvider";
 
 export enum AppRoutes {
@@ -22,7 +22,7 @@ export const routeConfig: RouteProps[] = [
     path: RoutePath["state-machine"],
     element: (
       <StateMachineProvider>
-        <EmployeeWizardPage />
+        <StateMachinePage />
       </StateMachineProvider>
     ),
   },
