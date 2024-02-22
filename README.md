@@ -12,7 +12,7 @@ A ReactJS web page for state-machine-lib implementation
 - [x] Added Storybook
 - [x] Added pre-commit mechanism
 - [x] Added github action
-- [ ] WIP: needs fix Nginx for getting stateMachineConfiguration file form custom server
+- [ ] WIP: needs to fix Nginx for getting stateMachineConfiguration file from custom server
 
 ## How to use it?
 
