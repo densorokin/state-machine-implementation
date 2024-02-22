@@ -12,6 +12,7 @@ A ReactJS web page for state-machine-lib implementation [DEMO](https://densoroki
 - [x] Added Storybook
 - [x] Added pre-commit mechanism
 - [x] Added github action
+- [x] Deployed on GitHub pages
 - [ ] WIP: needs to fix Nginx for getting stateMachineConfiguration file from custom server
 
 ## How to use it?
