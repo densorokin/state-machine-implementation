@@ -1,19 +1,3 @@
-.wizard {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 30em;
-  height: 30em;
-  transform: translate(-50%, -50%);
-  gap: 30px;
-  width: 400px;
-}
-
-
-body {
-  margin: 0;
-}
-
 .input-group:not(:last-child) {
   margin-bottom: 1em;
 }
@@ -25,23 +9,8 @@ body {
   font-size: 0.875em;
 }
 
-.input {
-  width: 100%;
-  padding: 1em;
-  border-radius: 1.5em;
-  border: 0.125em solid transparent;
-  outline: 0;
-  background-color: #f0f4fd;
-  font-size: 1em;
-}
-
-.input::placeholder {
-  color: #d8d8d8;
-  opacity: 1;
-}
-
 .input:focus {
-  border-color: #4a90e2;
+  border-color: var(--primary-button-next-background);
 }
 
 .input-radio {
@@ -59,10 +28,10 @@ body {
   height: 1em;
   margin-right: 0.5em;
   border-radius: 50%;
-  border: 0.125em solid #bbb;
+  border: 0.125em solid var(--primary-button-prev-background);
   transition: border-color 0.3s ease;
 }
 
 .label-radio:hover .label-radio__toggler {
-  border-color: #4a90e2;
+  border-color: var(--primary-button-next-background);
 }
