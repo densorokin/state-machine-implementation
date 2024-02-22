@@ -25,7 +25,7 @@ describe("Wizard", () => {
     fireEvent.click(initialNextBtn);
 
     expectToBeInTheDocument("personal");
-    const personalNextBtn = screen.getByTestId("personal-next-card-btn");
+    let personalNextBtn = screen.getByTestId("personal-next-card-btn");
     expect(personalNextBtn.textContent).toBe("Next");
     fireEvent.click(personalNextBtn);
 
@@ -33,10 +33,13 @@ describe("Wizard", () => {
     const occupationBackBtn = screen.getByTestId("occupation-prev-card-btn");
     expect(occupationBackBtn.textContent).toBe("Back");
     fireEvent.click(occupationBackBtn);
+
+    expectToBeInTheDocument("personal");
+    personalNextBtn = screen.getByTestId("personal-next-card-btn");
     fireEvent.click(personalNextBtn);
 
     const studentRadioBtn = expectToBeInTheDocument("input-occupation-student");
-    const workerRadioBtn = expectToBeInTheDocument("input-occupation-worker");
+    let workerRadioBtn = expectToBeInTheDocument("input-occupation-worker");
 
     expect(studentRadioBtn).not.toBeChecked();
     expect(workerRadioBtn).not.toBeChecked();
@@ -46,14 +49,23 @@ describe("Wizard", () => {
     const educationBackBtn = screen.getByTestId("education-prev-card-btn");
     fireEvent.click(educationBackBtn);
 
+    workerRadioBtn = screen.getByTestId("input-occupation-worker");
     fireEvent.click(workerRadioBtn);
     expectToBeInTheDocument("work");
     const workBackBtn = screen.getByTestId("work-prev-card-btn");
     fireEvent.click(workBackBtn);
 
+    workerRadioBtn = screen.getByTestId("input-occupation-worker");
     fireEvent.click(workerRadioBtn);
     const workNextBtn = screen.getByTestId("work-next-card-btn");
     expect(workNextBtn.textContent).toBe("Continue");
     fireEvent.click(workNextBtn);
+
+    expectToBeInTheDocument("success");
+    const successBtn = expectToBeInTheDocument("success-next-card-btn");
+    expect(successBtn.textContent).toBe("Take another survey");
+    fireEvent.click(successBtn);
+
+    expectToBeInTheDocument("initial");
   });
 });
