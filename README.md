@@ -1,6 +1,6 @@
 # state-machine-implementation
 
-A ReactJS web page for state-machine-lib implementation
+A ReactJS web page for state-machine-lib implementation [DEMO](https://densorokin.github.io/state-machine-implementation/)
 
 ## What was done
 - [x] Configured React project
@@ -39,14 +39,13 @@ npm run test:unit
 ### Run screenshot tests
 ```bash
 # with npm
+npm run storybook
 npm run test:ui
-```
-
-### Run tests report 
-```bash
-# with npm
 npm run test:ui:report
 ```
+open the file: ./.loki/report.html
+![Screenshot tests report](test_ui_report.gif)
+
 
 ### Run deploy 
 ```bash
