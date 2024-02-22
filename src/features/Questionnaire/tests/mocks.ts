@@ -58,7 +58,7 @@ export const stateMachineConfigurationMock = {
         },
       },
       send: {
-        target: "loading",
+        target: "success",
         action() {
           console.log('transition action for "send" in "education" state');
         },
@@ -74,19 +74,9 @@ export const stateMachineConfigurationMock = {
         },
       },
       send: {
-        target: "loading",
-        action() {
-          console.log('transition action for "send" in "work" state');
-        },
-      },
-    },
-  },
-  loading: {
-    transitions: {
-      success: {
         target: "success",
         action() {
-          console.log('transition action for "reset" in "education" state');
+          console.log('transition action for "send" in "work" state');
         },
       },
     },

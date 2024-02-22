@@ -2,6 +2,8 @@ import { useEffect, useState, ReactNode } from "react";
 import { MachineTemplateContext } from "../lib/machineTemplateContext";
 import { StateMachineConfiguration } from "state-machine-lib";
 
+import { stateMachineConfigurationMock } from "features/Questionnaire/tests/mocks";
+
 export const StateMachineProvider = ({
   children,
   initialState,
@@ -13,10 +15,10 @@ export const StateMachineProvider = ({
     useState<StateMachineConfiguration>(initialState);
 
   const getStateMachine = async () => {
-    const response = await fetch("http://denys.sorokin.fvds.ru/api");
-    const data = await response.json();
+    // const response = await fetch("http://denys.sorokin.fvds.ru/api");
+    // const data = await response.json();
 
-    setMachineTemplate(data);
+    setMachineTemplate(stateMachineConfigurationMock);
   };
 
   useEffect(() => {
