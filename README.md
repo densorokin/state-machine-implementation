@@ -46,6 +46,7 @@ npm run test:ui:report
 ```
 
 For getting the report needs to break for example styles
+
 open the file: ./.loki/report.html
 ![Screenshot tests report](test_ui_report.gif)
 
