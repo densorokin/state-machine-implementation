@@ -13,10 +13,6 @@ export const Questionnaire = () => {
     machineTemplate
   );
 
-  if (!machineTemplate) {
-    return <div>Loading</div>;
-  }
-
   return (
     <div className={cls.wizard} data-testid="wizard-container">
       <Card

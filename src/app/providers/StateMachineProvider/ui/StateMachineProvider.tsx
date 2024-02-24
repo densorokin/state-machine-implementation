@@ -17,6 +17,8 @@ export const StateMachineProvider = ({
   const getStateMachine = async () => {
     // const response = await fetch("http://denys.sorokin.fvds.ru/api");
     // const data = await response.json();
+    // const sleep = (ms: number) =>
+    //   new Promise((resolve) => setTimeout(resolve, ms));
 
     setMachineTemplate(stateMachineConfigurationMock);
   };

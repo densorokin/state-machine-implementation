@@ -4,6 +4,7 @@ import { StateMachineConfiguration } from "state-machine-lib";
 
 interface UseStateMachineResult {
   machineTemplate: StateMachineConfiguration;
+  isLoading: boolean;
 }
 
 export function useMachineTemplate(): UseStateMachineResult {
@@ -11,5 +12,6 @@ export function useMachineTemplate(): UseStateMachineResult {
 
   return {
     machineTemplate,
+    isLoading: !machineTemplate,
   };
 }
