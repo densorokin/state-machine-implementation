@@ -48,18 +48,16 @@ npm run test:ui:report
 State machine configuration in Demo version:
 ```mermaid
 graph LR;
-      Initial -- start --> Personal;
-      Personal -- next --> Occupation;
-      Occupation -- back --> Personal;
-      Occupation -- work --> Worker;
-			Occupation -- education --> Student;
-			Student -- back --> Occupation;
-			Worker -- back --> Occupation;
-			Worker -- work --> Work;
-			Student -- education --> Education;
-			Work -- continue --> Success;
-			Education -- continue--> Success;
-			Success -- reset --> Initial;
+	Initial -- start --> Personal;
+	Personal -- next --> Occupation;
+	Occupation -- back --> Personal;
+	Occupation -- work --> Worker;
+	Occupation -- education --> Student;
+	Student -- back --> Occupation;
+	Worker -- back --> Occupation;
+	Worker -- send --> Success;
+	Student -- send --> Success;
+	Success -- reset --> Initial;
 ```
 
 
